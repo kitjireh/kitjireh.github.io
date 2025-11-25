@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Background Effects -->
+    <div class="bg-orbs">
+        <span class="orb one"></span>
+        <span class="orb two"></span>
+        <span class="orb three"></span>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="images/k.jpg" alt="Logo">
+                <span class="logo-name">Kit Eguia</span>
+            </div>
+            <ul>
+                <li><a href="#about">About Me</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Me Section -->
+    <section id="about" class="section hidden">
+        <div class="about-container">
+            <img src="images/your-image.jpg" alt="Your Photo" class="profile-img hidden">
+            <div class="about-text hidden">
+                <h1>Hello, I'm Kit</h1>
+                <p>
+                    I am currently studying <strong>Computer Science</strong> with a specialization in 
+                    <strong>Software Engineering</strong>. I enjoy building websites, apps, 
+                    and learning new technologies to solve real-world problems.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section hidden">
+        <h2 class="section-title hidden">My Skills</h2>
+
+        <p class="hidden" style="text-align:center; max-width: 800px; margin:auto; margin-bottom: 30px;">
+            I have built several skills through my studies and personal projects, and I continue to learn and grow.
+        </p>
+
+        <div class="skills-container hidden">
+            <div class="skill-card hidden">
+                <h3>Current Skills</h3>
+                <ul>
+                    <li>Basic Programming (Python, JavaScript)</li>
+                    <li>Problem-Solving & Critical Thinking</li>
+                    <li>Version Control (Git & GitHub)</li>
+                    <li>Basic Web Development (HTML & CSS)</li>
+                </ul>
+            </div>
+
+            <div class="skill-card hidden">
+                <h3>Skills I’m Improving</h3>
+                <ul>
+                    <li>JavaScript & Web Development</li>
+                    <li>UI/UX Design Principles</li>
+                    <li>Software Development</li>
+                    <li>Cybersecurity Practices</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section hidden">
+        <h2 class="section-title hidden">Contact Me</h2>
+
+        <form class="contact-form hidden">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <textarea placeholder="Message"></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <h2 class="footer-name">Kit Eguia</h2>
+
+        <div class="footer-icons">
+            <a href="https://www.facebook.com/kit.jireh.eguia.2025/" target="_blank">
+                <img src="images/fb.jpg" alt="Facebook">
+            </a>
+
+            <a href="https://www.instagram.com/luvv.kitt/" target="_blank">
+                <img src="images/ig.jpg" alt="Instagram">
+            </a>
+
+            <a href="https://github.com/kitjireh" target="_blank">
+                <img src="images/github.jpg" alt="Github">
+            </a>
+        </div>
+
+        <p class="footer-copy">© 2025 Kit. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Animation -->
+    <script>
+        // Intersection Observer for fade-in animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        }, { threshold: 0.2 });
+
+        const hiddenElements = document.querySelectorAll(".hidden");
+        hiddenElements.forEach(el => observer.observe(el));
+
+        // Smooth scrolling for navbar
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener("click", function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute("href"));
+                target.scrollIntoView({ behavior: "smooth" });
+            });
+        });
+    </script>
+
+</body>
+</html>
